@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline';
+        font-src 'self';
+        img-src 'self' data: blob:;
+        connect-src 'self';
+        worker-src 'self' blob:
+    ">
+    <title>Seller Calculators</title>
+    <link href="libs/fonts/poppins.css" rel="stylesheet">
+    <link href="libs/all.min.css" rel="stylesheet">
+    <link href="libs/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <!-- Load jsPDF from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Empire Title Calculators
+            </a>
+        </div>
+    </nav>
+            <div class="calculator-container">
+                <div class="col-12">
+                    <a href="index.html" class="btn btn-link mb-4 back-button" >
+                        <i class="fas fa-arrow-left"></i> Back to Calculators
+                    </a>
+                </div>
+                <div class="col-12 text-center">
+                 <h2 class="main-title">Seller Net Sheet Calculator</h2>
+                </div>
+                <div class="col-12">
+                    <form id="sellerForm" class="calculator-form">
+                        <div class="form-section row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="sale-price">Sale Price</label>
+                                    <input type="text" id="sale-price" name="sale-price" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="existing-mortgage">Existing Mortgage Balance</label>
+                                    <input type="text" id="existing-mortgage" name="existing-mortgage" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="property-taxes">Property Taxes Due</label>
+                                    <input type="text" id="property-taxes" name="property-taxes" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="other-fees">Other Fees</label>
+                                    <input type="text" id="other-fees" name="other-fees" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="home-warranty">Home Warranty</label>
+                                    <input type="text" id="home-warranty" name="home-warranty" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="real-estate-commission">Real Estate Commission</label>
+                                    <input type="text" id="real-estate-commission" name="real-estate-commission" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="real-estate-commission">Real Estate Commission</label>
+                                    <input type="text" id="real-estate-commission" name="real-estate-commission" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="real-estate-commission">Selling Agent Commission</label>
+                                    <input type="text" id="selling-agent-commission" name="selling-agent-commission" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="real-estate-commission">Buying Agent Commission</label>
+                                    <input type="text" id="buying-agent-commission" name="buying-agent-commission" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="real-estate-commission">Seller Credit</label>
+                                    <input type="text" id="seller-credit" name="seller-credit" class="form-control currency-input" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center mt-3">
+                                 <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Calculate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <!-- Modal -->
+                    <div class="modal fade result-mod" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header mb-0 pb-0">
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div  class="additionl-info" >
+                                        <h3>Additional Information</h3>
+                                       <form id="agentForm">
+											<div class="form-group">
+												<label for="propertyAddress">Property Address</label>
+												<input type="text" class="form-control" id="propertyAddress" name="propertyAddress" placeholder="314 South 48th Street" required>
+											</div>
+
+											<div class="form-group">
+												<label for="isAgent">Are you an agent?</label>
+												<select class="form-control" id="isAgent" name="isAgent" required>
+													<option value="No">No</option>
+													<option value="Yes">Yes</option>
+												</select>
+											</div>
+
+											<div class="form-group" id="agentDetails" style="display: none;">
+												<div class="form-group">
+													<label for="agentName">Agent Name</label>
+													<input type="text" class="form-control" id="agentName" name="agentName" placeholder="Kyle Tom" required>
+												</div>
+												<div class="form-group">
+													<label for="agentEmail">Agent Email</label>
+													<input type="email" class="form-control" id="agentEmail" name="agentEmail" placeholder="kyle@lingle.com" required>
+												</div>
+												<div class="form-group">
+													<label for="agentPhone">Agent Phone</label>
+													<input type="tel" class="form-control" id="agentPhone" name="agentPhone" placeholder="7653388129" required>
+												</div>
+												<div class="form-group">
+													<label for="coBrand">Would you like to co-brand?</label>
+													<select class="form-control" id="coBrand" name="coBrand" required>
+														<option value="No">No</option>
+														<option value="Yes">Yes</option>
+													</select>
+												</div>
+											</div>
+
+											<div class="form-group" id="coBrandDetails" style="display: none;">
+												<div class="form-group">
+													<label for="companyName">Company Name</label>
+													<input type="text" class="form-control" id="companyName" name="companyName" placeholder="Coldwell Banker Lingle" required>
+												</div>
+												<div class="form-group">
+													<label for="agentPhoto">Agent Photo</label>
+													<input type="file" class="form-control" id="agentPhoto" name="agentPhoto" accept="image/*" required>
+													<!--img id="photoPreview" alt="Agent Photo Preview"-->
+												</div>
+											</div>
+
+											<div class="form-group">
+												<a href="images/seller-net-sheet-template2.pdf"  target="blank" type="submit" class="btn btn-primary w-100 mt-3">Generate PDF</a>
+											</div>
+										</form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Modal End-->
+              
+
+            </div>
+
+    <script src="libs/jquery-3.7.0.min.js"></script>
+    <script src="libs/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+	<script>
+        const isAgent = document.getElementById('isAgent');
+        const agentDetails = document.getElementById('agentDetails');
+        const coBrand = document.getElementById('coBrand');
+        const coBrandDetails = document.getElementById('coBrandDetails');
+
+        isAgent.addEventListener('change', () => {
+            if (isAgent.value === 'Yes') {
+                agentDetails.style.display = 'block';
+            } else {
+                agentDetails.style.display = 'none';
+                coBrandDetails.style.display = 'none';
+            }
+        });
+
+        coBrand.addEventListener('change', () => {
+            if (coBrand.value === 'Yes') {
+                coBrandDetails.style.display = 'block';
+            } else {
+                coBrandDetails.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
