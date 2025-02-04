@@ -900,4 +900,23 @@ div#results h3 {
 .result-mod .modal-dialog #results .result-item span{
     width: auto;
 }
+.navbar-brand {
+    font-size: 22px;
+    white-space: normal;
+    width: 100%;
+    text-align: center;
+}
+.row.justify-content-center.g-4 .col-md-4 {
+    padding-bottom: 24px;
+    margin-top: 0;
+}
+.calculator-container {
+    padding: 1rem;
+
+}
+.calculator-form {
+    padding: 2rem 1rem;
+
+}
+
 }
