@@ -920,3 +920,75 @@ div#results h3 {
 }
 
 }
+
+
+/*************/
+
+
+#results-new .result-item:nth-child(odd) {
+    background: #f4f4f4;
+}
+#results-new .result-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+#results-new h3 {
+    margin-bottom: 27px;
+    text-align: left;
+}
+#results-new .result-item label {
+    padding: 10px;
+    width: 65%;
+}
+#results-new .result-item span {
+    padding: 10px;
+    width: 35%;
+    text-align: right;
+    display: block;
+}
+.rslt-md .calculator-form {
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+.main-dv-form {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: calc(100% - 30px);
+    margin-left: auto;
+    margin-right: auto;
+}
+#results-new {
+    background: #fbfbfb;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    height: 100%;
+}
+.form-left {
+    width: 100%;
+}
+.result-right {
+    display: none;
+}
+.show-result .form-left {
+    width: 50%;
+}
+.show-result .result-right {
+    display: block;
+    filter: blur(5px);
+}
+.result-footer{display:none;justify-content: flex-end;margin-top: 50px;}
+
+.show-result.show-result-main .result-right .result-footer {
+    display: flex;
+    
+}
+.result-footer .btn {
+    margin-left: 25px;
+}
+.show-result.show-result-main .result-right {
+    filter: none;
+}

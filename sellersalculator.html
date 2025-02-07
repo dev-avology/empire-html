@@ -37,77 +37,102 @@
                 <div class="col-12 text-center">
                  <h2 class="main-title">Seller Net Sheet Calculator</h2>
                 </div>
-                <div class="col-12">
-                    <form id="sellerForm" class="calculator-form">
-                        <div class="form-section row">
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="sale-price">Sale Price</label>
-                                    <input type="text" id="sale-price" name="sale-price" class="form-control currency-input" required>
+				<div class="main-dv-form">
+					<div class="row rslt-md">
+						<div class="col-6 form-left">
+							<form id="sellerForm" class="calculator-form">
+								<div class="form-section row">
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="sale-price">Sale Price</label>
+											<input type="text" id="sale-price" name="sale-price" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="existing-mortgage">Existing Mortgage Balance</label>
+											<input type="text" id="existing-mortgage" name="existing-mortgage" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="property-taxes">Property Taxes Due</label>
+											<input type="text" id="property-taxes" name="property-taxes" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="other-fees">Other Fees</label>
+											<input type="text" id="other-fees" name="other-fees" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="home-warranty">Home Warranty</label>
+											<input type="text" id="home-warranty" name="home-warranty" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="real-estate-commission">Real Estate Commission</label>
+											<input type="text" id="real-estate-commission" name="real-estate-commission" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="real-estate-commission">Real Estate Commission</label>
+											<input type="text" id="real-estate-commission" name="real-estate-commission" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="real-estate-commission">Selling Agent Commission</label>
+											<input type="text" id="selling-agent-commission" name="selling-agent-commission" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="real-estate-commission">Buying Agent Commission</label>
+											<input type="text" id="buying-agent-commission" name="buying-agent-commission" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group mb-3">
+											<label for="real-estate-commission">Seller Credit</label>
+											<input type="text" id="seller-credit" name="seller-credit" class="form-control currency-input" required>
+										</div>
+									</div>
+									<div class="col-md-12 text-center mt-3">
+										 <a  class="btn btn-primary calc-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Calculate</a>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-6 result-right">
+							<div id="results-new" class="" >
+								<h3>Results</h3>
+								<div class="results-grid">
+									<div class="result-item">
+										<label>Sale Price:</label>
+										<span id="result-salePrice">$0</span>
+									</div>
+									<div class="result-item">
+										<label>Total Expenses:</label>
+										<span id="result-totalExpenses">$4,301,000,000</span>
+									</div>
+									<div class="result-item">
+										<label>Net Proceeds:</label>
+										<span id="result-netProceeds" class="negative-value">-$4,301,000,000</span>
+									</div>
+								</div>
+								<div class="result-footer">
+                                    <a href="images/seller-net-sheet-template2.pdf" target="blank" type="button" class="btn btn-primary">Print</a>
+                                    <a href="images/seller-net-sheet-template2.pdf" target="blank" type="button" class="btn btn-primary">Save</a>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="existing-mortgage">Existing Mortgage Balance</label>
-                                    <input type="text" id="existing-mortgage" name="existing-mortgage" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="property-taxes">Property Taxes Due</label>
-                                    <input type="text" id="property-taxes" name="property-taxes" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="other-fees">Other Fees</label>
-                                    <input type="text" id="other-fees" name="other-fees" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="home-warranty">Home Warranty</label>
-                                    <input type="text" id="home-warranty" name="home-warranty" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="real-estate-commission">Real Estate Commission</label>
-                                    <input type="text" id="real-estate-commission" name="real-estate-commission" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="real-estate-commission">Real Estate Commission</label>
-                                    <input type="text" id="real-estate-commission" name="real-estate-commission" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="real-estate-commission">Selling Agent Commission</label>
-                                    <input type="text" id="selling-agent-commission" name="selling-agent-commission" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="real-estate-commission">Buying Agent Commission</label>
-                                    <input type="text" id="buying-agent-commission" name="buying-agent-commission" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="real-estate-commission">Seller Credit</label>
-                                    <input type="text" id="seller-credit" name="seller-credit" class="form-control currency-input" required>
-                                </div>
-                            </div>
-                            <div class="col-md-12 text-center mt-3">
-                                 <a  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Calculate</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-
+							</div>
+						</div>
+					</div>
+				</div>
                 <!-- Modal -->
                     <div class="modal fade result-mod" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -167,7 +192,7 @@
 											</div>
 
 											<div class="form-group">
-												<a href="images/seller-net-sheet-template2.pdf"  target="blank" type="submit" class="btn btn-primary w-100 mt-3">Generate PDF</a>
+												<a  target="blank" type="submit" data-bs-dismiss="modal" aria-label="Close" class="btn btn-primary w-100 mt-3  pdf-btn">Generate PDF</a>
 											</div>
 										</form>
                                     </div>
@@ -206,5 +231,20 @@
             }
         });
     </script>
+	<script>
+		$(document).ready(function(){
+		  // to add a class
+		  $(".calc-btn").click(function(){
+			$("body").addClass("show-result");
+		  });
+
+
+		  $(".pdf-btn").click(function(){
+			  $("body").addClass("show-result-main");
+		  });
+		  
+		  
+		});
+	</script>
 </body>
 </html>
